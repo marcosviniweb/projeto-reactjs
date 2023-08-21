@@ -6,7 +6,7 @@ Este projeto consulta a API de usuários e exibe os dados retornados em uma tabe
 
 - Realiza uma consulta à API de usuários disponível em [https://dummyjson.com/users](https://dummyjson.com/users).
 - Apresenta os dados dos usuários em uma tabela estruturada.
-- Utiliza frameworks de UI, como Bootstrap, Material UI ou Semantic UI.
+- Utiliza frameworks de UI, como Bootstrap.
 - Desenvolvido usando o framework React.
 - Possui a flexibilidade para criar componentes e serviços, conforme necessário.
 - Utiliza a Fetch API para consultas à web.
