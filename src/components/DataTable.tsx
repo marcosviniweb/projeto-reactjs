@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { fetchUsers } from '../services/userService';
 import { User } from '../models/User';
 
-export function DataTable() {
+export function DataTable(props) {
+  const filteredUsers = props.users.filter((user) =>
+    user.firstName.toLowerCase().includes(props.searchQuery.toLowerCase())
+  );
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
