@@ -1,10 +1,26 @@
 import React from 'react';
-import { User } from '../models/User';
 
 export function DataTable(props) {
-  const filteredUsers = props.users.filter((user) =>
-    user.firstName.toLowerCase().includes(props.searchQuery.toLowerCase())
-  );
+  const filteredUsers = props.users.filter((user) => {
+    switch (props.searchQuery.filter) {
+      case 'firstName':
+        return user.firstName
+          .toLowerCase()
+          .includes(props.searchQuery.query.toLowerCase());
+      case 'lastName':
+        return user.lastName
+          .toLowerCase()
+          .includes(props.searchQuery.query.toLowerCase());
+      case 'age':
+        return user.age.toString().includes(props.searchQuery.query);
+      case 'gender':
+        return user.gender
+          .toLowerCase()
+          .includes(props.searchQuery.query.toLowerCase());
+      default:
+        return true;
+    }
+  });
 
   return (
     <table className="table table-striped">
