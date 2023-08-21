@@ -22,6 +22,10 @@ export function DataTable(props) {
     }
   });
 
+  if (filteredUsers.length === 0) {
+    return <p>Nenhum usuário encontrado.</p>;
+  }
+
   return (
     <table className="table table-striped">
       <thead>
