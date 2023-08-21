@@ -1,8 +1,9 @@
 import React from 'react';
+import './Header.scss';
 
 export function Header() {
   return (
-    <header className="pb-3 mb-4 border-bottom">
+    <header className="pb-3 mb-4 border-bottom d-flex align-items-center header-container">
       <a
         href="/"
         className="d-flex align-items-center text-dark text-decoration-none"

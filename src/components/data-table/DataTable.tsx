@@ -1,4 +1,5 @@
 import React from 'react';
+import './DataTable.scss';
 
 export function DataTable(props) {
   const filteredUsers = props.users.filter((user) => {
@@ -28,7 +29,7 @@ export function DataTable(props) {
 
   return (
     <table className="table table-striped">
-      <thead>
+      <thead className="dataTable-container">
         <tr>
           <th scope="col">#</th>
           <th scope="col">First Name</th>
