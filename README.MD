@@ -1,4 +1,4 @@
-# Consulta a API de Usuários com JavaScript
+# Consulta a API de Usuários com REACTJS
 
 Este projeto consulta a API de usuários e exibe os dados retornados em uma tabela formatada.
 
@@ -19,23 +19,4 @@ Para visualizar o projeto em ação em seu ambiente local:
 1. Clone o repositório do projeto.
 2. Instale as dependências usando `npm install` ou `yarn install`.
 3. Compile ou construa o projeto conforme necessário.
-4. Abra o arquivo `index.html` em um navegador. O arquivo deve ter uma estrutura similar a:
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consulta a API de Usuários</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="path/to/your/css/main.css">
-</head>
-
-<body>
-    <div id="root"></div>
-    <script src="path/to/your/js/bundle.js"></script>
-</body>
-
-</html>
