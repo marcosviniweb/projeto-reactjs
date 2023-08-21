@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Header } from './components/Header';
-import { SearchBar } from './components/SearchBar';
-import { DataTable } from './components/DataTable';
-import { Footer } from './components/Footer';
+import { Header } from './components/header/Header';
+import { SearchBar } from './components/searchBar/SearchBar';
+import { DataTable } from './components/data-table/DataTable';
+import { Footer } from './components/footer/Footer';
 import { fetchUsers } from './services/userService';
 
 export default function App() {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState({
+    query: '',
+    filter: 'firstName',
+  });
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -20,6 +23,10 @@ export default function App() {
     getUsers();
   }, []);
 
+  const handleSearch = (query, filter) => {
+    setSearchQuery({ query, filter });
+  };
+
   return (
     <div className="container">
       <Header />
@@ -27,7 +34,7 @@ export default function App() {
         <div id="app"></div>
         <div className="card">
           <div className="card-body">
-            <SearchBar onSearch={setSearchQuery} />
+            <SearchBar onSearch={handleSearch} />
             <DataTable users={users} searchQuery={searchQuery} />
           </div>
         </div>
