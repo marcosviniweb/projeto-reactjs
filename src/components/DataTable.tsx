@@ -1,25 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { fetchUsers } from '../services/userService';
+import React from 'react';
 import { User } from '../models/User';
 
 export function DataTable(props) {
   const filteredUsers = props.users.filter((user) =>
     user.firstName.toLowerCase().includes(props.searchQuery.toLowerCase())
   );
-  const [users, setUsers] = useState<User[]>([]);
-
-  useEffect(() => {
-    const loadUsers = async () => {
-      try {
-        const fetchedUsers = await fetchUsers();
-        setUsers(fetchedUsers);
-      } catch (error) {
-        console.error('Error fetching users:', error);
-      }
-    };
-
-    loadUsers();
-  }, []);
 
   return (
     <table className="table table-striped">
@@ -33,7 +18,7 @@ export function DataTable(props) {
         </tr>
       </thead>
       <tbody>
-        {users.map((user, index) => (
+        {filteredUsers.map((user, index) => (
           <tr key={user.id}>
             <td>{index + 1}</td>
             <td>{user.firstName}</td>
