@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Header } from './components/Header';
-import { SearchBar } from './components/SearchBar';
-import { DataTable } from './components/DataTable';
-import { Footer } from './components/Footer';
+import { Header } from './components/header/Header';
+import { SearchBar } from './components/searchBar/SearchBar';
+import { DataTable } from './components/data-table/DataTable';
+import { Footer } from './components/footer/Footer';
 import { fetchUsers } from './services/userService';
 
 export default function App() {
