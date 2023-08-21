@@ -2,26 +2,21 @@ import React from 'react';
 import './DataTable.scss';
 
 export function DataTable(props) {
-  const filteredUsers = props.users.filter((user) => {
-    switch (props.searchQuery.filter) {
-      case 'firstName':
-        return user.firstName
-          .toLowerCase()
-          .includes(props.searchQuery.query.toLowerCase());
-      case 'lastName':
-        return user.lastName
-          .toLowerCase()
-          .includes(props.searchQuery.query.toLowerCase());
-      case 'age':
-        return user.age.toString().includes(props.searchQuery.query);
-      case 'gender':
-        return user.gender
-          .toLowerCase()
-          .includes(props.searchQuery.query.toLowerCase());
-      default:
-        return true;
-    }
-  });
+  const filters = {
+    firstName: (user, query) =>
+      user.firstName.toLowerCase().includes(query.toLowerCase()),
+    lastName: (user, query) =>
+      user.lastName.toLowerCase().includes(query.toLowerCase()),
+    age: (user, query) => user.age.toString().includes(query),
+    gender: (user, query) =>
+      user.gender.toLowerCase().includes(query.toLowerCase()),
+  };
+
+  const filterFunction = filters[props.searchQuery.filter] || (() => true);
+
+  const filteredUsers = props.users.filter((user) =>
+    filterFunction(user, props.searchQuery.query)
+  );
 
   if (filteredUsers.length === 0) {
     return <p>Nenhum usuário encontrado.</p>;
